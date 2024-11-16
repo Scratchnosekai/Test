@@ -35,7 +35,7 @@ jobs:
 
       # 結果のファイルを保存
       - name: Upload characters.txt and codepoints.txt
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: unicode-files
           path: |
