@@ -1,0 +1,43 @@
+name: Run Python Script to Generate Unicode Files
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにpushした際に実行
+  pull_request:
+    branches:
+      - main  # mainブランチへのPRで実行
+
+jobs:
+  run_python_script:
+    runs-on: ubuntu-latest  # 実行環境は最新のUbuntu
+
+    steps:
+      # リポジトリのクローン
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Python環境のセットアップ
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # 使用するPythonのバージョン
+
+      # 必要なパッケージをインストール
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      # スクリプトを実行
+      - name: Run Unicode Generation Script
+        run: |
+          python Test.py
+
+      # 結果のファイルを保存
+      - name: Upload characters.txt and codepoints.txt
+        uses: actions/upload-artifact@v2
+        with:
+          name: unicode-files
+          path: |
+            characters.txt
+            codepoints.txt
