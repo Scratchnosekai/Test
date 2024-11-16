@@ -1,4 +1,4 @@
-# 修正されたUnicode範囲
+# 修正されたUnicode範囲（記号が最後）
 codepoint_ranges = [
     [0x20, 0x7F],         # 英数字、記号、基本的なASCII文字
     [0x3041, 0x3096],     # ひらがな
@@ -7,12 +7,12 @@ codepoint_ranges = [
     [0x4E00, 0x9FCB],     # 漢字（CJK Ideographs）
     [0xF900, 0xFA6A],     # 漢字（CJK Compatibility Ideographs）
     [0x2E80, 0x2FD5],     # 漢字の部首
-    [0xFF5F, 0xFF9F],     # カタカナ・記号
     [0x3000, 0x303F],     # 日本語の記号
     [0x31F0, 0x31FF],     # 雑多な日本語の記号
     [0x3220, 0x3243],     # 雑多な日本語の記号
     [0x3280, 0x337F],     # 雑多な日本語の記号
-    [0xFF01, 0xFF5E],     # 全角アルファベット・記号
+    [0xFF5F, 0xFF9F],     # カタカナ・記号
+    [0xFF01, 0xFF5E],     # 全角アルファベット・記号（最後に移動）
 ]
 
 # コードポイントを取得する関数
