@@ -30,8 +30,8 @@ with open("characters.txt", "w", encoding="utf-8") as char_file, open("codepoint
                 # 文字をcharacters.txtに書き込む
                 char_file.write(char + "\n")
                 
-                # コードポイント（10進数）をcodepoints.txtに書き込む
-                codepoint_file.write(str(code_point) + "\n")
+                # コードポイント（10進数）を5桁にし、codepoints.txtに書き込む
+                codepoint_file.write(f"{code_point:05d}\n")
                 
             except ValueError:
                 continue  # 無効なコードポイントの場合はスキップ
