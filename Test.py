@@ -22,6 +22,10 @@ with open("characters.txt", "w", encoding="utf-8") as char_file, open("codepoint
             try:
                 # コードポイントに対応する文字を取得
                 char = chr(code_point)
+
+                # 特定の文字や記号、または無効な文字を除外（例: カンマや制御文字など）
+                if char == ',' or ord(char) < 0x20 or (0x7F <= ord(char) < 0xA0):  # 制御文字やカンマを除外
+                    continue
                 
                 # 文字をcharacters.txtに書き込む
                 char_file.write(char + "\n")
