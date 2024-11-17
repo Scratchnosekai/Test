@@ -8,9 +8,6 @@ codepoint_ranges = [
     [0xF900, 0xFA6A],     # 漢字（CJK Compatibility Ideographs）
     [0x2E80, 0x2FD5],     # 漢字の部首
     [0x3000, 0x303F],     # 日本語の記号
-    [0x31F0, 0x31FF],     # 雑多な日本語の記号
-    [0x3220, 0x3243],     # 雑多な日本語の記号
-    [0x3280, 0x337F],     # 雑多な日本語の記号
     [0xFF5F, 0xFF9F],     # カタカナ・記号
     [0xFF01, 0xFF5E],     # 全角アルファベット・記号
 ]
@@ -26,10 +23,6 @@ with open("characters.txt", "w", encoding="utf-8") as char_file, open("codepoint
             try:
                 # コードポイントに対応する文字を取得
                 char = chr(code_point)
-                
-                # '#' を除外する処理
-                if char == "#":
-                    continue  # '#'の場合はスキップ
                 
                 # 文字をcharacters.txtに書き込む
                 char_file.write(char + "\n")
